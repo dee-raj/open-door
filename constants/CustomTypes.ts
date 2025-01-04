@@ -16,6 +16,7 @@ export interface ListingItemType {
     column_19: string
     coordinates: Coordinates
     column_20: string
+    image_url: string
 }
 
 export interface Coordinates {
