@@ -4,6 +4,8 @@ import { Link, Stack } from 'expo-router';
 import ExploreHeader from '@/components/ExploreHeader';
 import Listings from '@/components/Listings';
 import listingsData from '@/assets/data/air-bnb-listings.json';
+import ListingsMap from '@/components/ListingsMap';
+import listingGeoData from '@/assets/data/air-bnb-listings-geo.json'
 
 const Page = () => {
   const [category, setCategory] = useState('Tiny Homes');
@@ -13,12 +15,23 @@ const Page = () => {
   };
 
   const items = useMemo(() => listingsData as any, []);
+  const listingGeoItem = useMemo(() => listingGeoData as any, []);
+
+  const [mapShow, setMapShow] = useState(false);
+  const handleMapFilter = () => {
+    setMapShow(!mapShow);
+  }
+
   return (
     <View style={styles.container}>
       <Stack.Screen options={{
-        header: () => <ExploreHeader onCategoryChanged={onDataChange} />,
+        header: () => <ExploreHeader onCategoryChanged={onDataChange} handleMapFilter={handleMapFilter} />,
       }} />
-      <Listings listings={items} category={category} />
+      {mapShow ?
+        <Listings listings={items} category={category} />
+        :
+        <ListingsMap listingsGeo={listingGeoItem} />
+      }
     </View>
   );
 };

@@ -67,7 +67,8 @@ export default Listings;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    paddingHorizontal: 5,
+    marginTop: -20,
   },
   title: {
     fontSize: 16,

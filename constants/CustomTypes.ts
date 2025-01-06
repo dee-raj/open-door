@@ -23,3 +23,15 @@ export interface Coordinates {
     lon: number
     lat: number
 }
+
+export interface GeoListingProps {
+    type: string;
+    features: {
+        type: string;
+        geometry: {
+            type: string;
+            coordinates: number[];
+        };
+        properties: ListingItemType;
+    }[]
+}

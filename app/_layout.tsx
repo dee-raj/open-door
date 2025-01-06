@@ -114,10 +114,11 @@ function RootLayoutNav() {
       <Stack.Screen
         name="listing/[id]"
         options={{
-          headerTitle: "Listing Details",
-          headerTitleStyle: {
-            fontFamily: 'NunitoBold',
-          },
+          headerTitle: "",
+          // headerTitleStyle: {
+          //   fontFamily: 'NunitoBold',
+          // },
+          headerTransparent: true
         }}
       />
       <Stack.Screen
