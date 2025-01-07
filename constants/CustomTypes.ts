@@ -24,14 +24,16 @@ export interface Coordinates {
     lat: number
 }
 
+export interface ListingGeoFeatures {
+    type: string;
+    geometry: {
+        type: string;
+        coordinates: number[];
+    };
+    properties: ListingItemType;
+}
+
 export interface GeoListingProps {
     type: string;
-    features: {
-        type: string;
-        geometry: {
-            type: string;
-            coordinates: number[];
-        };
-        properties: ListingItemType;
-    }[]
+    features: ListingGeoFeatures[]
 }

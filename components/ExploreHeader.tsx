@@ -16,10 +16,9 @@ import { categories } from '@/assets/data/categories';
 
 interface ExploreHeaderProps {
     onCategoryChanged: (category: string) => void;
-    handleMapFilter: () => void;
 }
 
-const ExploreHeader = ({ onCategoryChanged, handleMapFilter }: ExploreHeaderProps) => {
+const ExploreHeader = ({ onCategoryChanged }: ExploreHeaderProps) => {
     const [activeIndex, setActiveIndex] = useState<number | null>(2);
     const scrollRef = useRef<ScrollView>(null);
     const itemRefs = useRef<(View | null)[]>(new Array(categories.length).fill(null));
@@ -46,7 +45,7 @@ const ExploreHeader = ({ onCategoryChanged, handleMapFilter }: ExploreHeaderProp
                             </View>
                         </TouchableOpacity>
                     </Link>
-                    <TouchableOpacity style={styles.filterBtn} onPress={handleMapFilter}>
+                    <TouchableOpacity style={styles.filterBtn} onPress={() => { }}>
                         <Ionicons name="options-outline" size={24} color={Colors.light.tabIconSelected} />
                     </TouchableOpacity>
                 </View>

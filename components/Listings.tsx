@@ -4,16 +4,24 @@ import { Link } from 'expo-router';
 import { ListingItemType } from '@/constants/CustomTypes';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '@/constants/Colors';
+import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
+import { BottomSheetFlatListMethods } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetScrollable/types';
 
 interface CategoryListProps {
   listings: any[];
   category: string;
+  refresh: number;
 }
 
-
-const Listings = ({ listings, category }: CategoryListProps) => {
+const Listings = ({ listings, category, refresh }: CategoryListProps) => {
   const [loading, setLoading] = useState(false);
-  const listRef = useRef<FlatList>(null);
+  const listRef = useRef<BottomSheetFlatListMethods>(null);
+
+  useEffect(() => {
+    if (refresh) {
+      listRef.current?.scrollToOffset({ offset: 0, animated: true });
+    }
+  }, [refresh]);
 
   useEffect(() => {
     console.log("Reload lists...", listings.length);
@@ -29,7 +37,7 @@ const Listings = ({ listings, category }: CategoryListProps) => {
     return (
       <Link href={`/listing/${item.id}`} asChild>
         <TouchableOpacity>
-          <View style={{ marginTop: 20 }}>
+          <View style={{ marginTop: 16, flex: 1 }}>
             <Image source={{ uri: item.image_url }} style={styles.image} />
             <TouchableOpacity style={{ position: 'absolute', top: 30, right: 30 }}>
               <Ionicons name='heart-outline' size={24} color={Colors.black} />
@@ -54,7 +62,7 @@ const Listings = ({ listings, category }: CategoryListProps) => {
   }
   return (
     <View style={styles.container}>
-      <FlatList
+      <BottomSheetFlatList
         data={loading ? [] : listings}
         ref={listRef}
         renderItem={renderRow}
@@ -67,8 +75,8 @@ export default Listings;
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 5,
-    marginTop: -20,
+    paddingHorizontal: -15,
+    marginTop: -20
   },
   title: {
     fontSize: 16,
