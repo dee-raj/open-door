@@ -58,52 +58,63 @@ To get started with the project, follow these steps:
 
 ## Project Structure
 
+
 ```
-app/
-├── (models)/           # Dynamic pages like booking and login
-├── (tabs)/             # Tab navigation components (e.g., profile, wishlist)
-│   ├── inbox.tsx
-│   ├── profile.tsx
-│   ├── trips.tsx
-│   ├── wishlist.tsx
-│   └── _layout.tsx
-├── listing/            # Listing-specific screens
-│   └── [id].tsx
-├── _layout.tsx
-assets/
-├── data/               # Data files like GeoJSON and categories
+app/                        # Main app components and pages
+├── (models)/               # Dynamic pages like booking and login
+│   ├── booking.tsx         # Booking-related models and logic
+│   └── login.tsx           # Login-related models and logic
+
+├── (tabs)/                 # Tab navigation components (e.g., profile, wishlist)
+│   ├── inbox.tsx           # Inbox tab UI
+├   ├── index.tsx           # index for tabs
+│   ├── profile.tsx         # Profile tab UI
+│   ├── trips.tsx           # Trips tab UI
+│   ├── wishlist.tsx        # Wishlist tab UI
+│   └── _layout.tsx         # Layout for tabs
+├── listing/                # Listing-specific screens
+│   └── [id].tsx            # Dynamic listing page by ID
+├── _layout.tsx             # Main layout for the app
+
+assets/                     # Static assets (fonts, images, data)
+├── data/                   # Data files like GeoJSON and categories
 │   ├── air-bnb-listings.geojson
 │   ├── air-bnb-listings.json
 │   └── categories.ts
-├── fonts/              # Custom fonts
+
+├── fonts/                  # Custom fonts
 │   ├── Nunito-Bold.ttf
 │   ├── Nunito-Italic.ttf
 │   ├── Outfit-Black.ttf
 │   └── SpaceMono-Regular.ttf
-├── images/             # Static images
+
+├── images/                 # Static images (icons, splash)
 │   ├── adaptive-icon.png
 │   ├── icon.png
 │   ├── splash-icon.png
-│   └── image1.webp
-components/             # Reusable UI components
-│   ├── ExploreHeader.tsx
-│   └── Listings.tsx
-constants/              # Colors, styles, and shared types
-│   ├── Colors.ts
-│   ├── CustomTypes.ts
-│   └── Styles.ts
-hooks/                  # Custom hooks
-│   └── useWarmUpBrowser.ts
-share/                  # Shared logic (e.g., token caching)
-│   └── tokenCache.ts
+│   └── image1.webp ... image14.webp
+
+components/                 # Reusable UI components
+├── ExploreHeader.tsx       # Header component for Explore screen
+└── Listings.tsx            # Component to display listings
+constants/                  # Shared constants and types
+├── Colors.ts               # Color constants
+├── CustomTypes.ts          # Custom TypeScript types
+└── Styles.ts               # Shared styles
+
+hooks/                      # Custom React hooks
+└── useWarmUpBrowser.ts     # Hook to warm up browser
+share/                      # Shared logic and utilities
+└── tokenCache.ts           # Token caching logic
 .
-├── .env                # Environment variables
-├── .gitignore          # Files and directories to ignore in Git
-├── app.json            # App configuration
-├── eas.json            # Expo Application Services config
-├── package.json        # Project metadata and dependencies
-├── tsconfig.json       # TypeScript configuration
-└── Readme.md           # Project documentation
+├── .env                    # Environment variables
+├── .gitignore              # Files and directories to ignore in Git
+├── app.json                # App configuration for Expo
+├── eas.json                # Expo Application Services configuration
+├── package.json            # Project metadata and dependencies
+├── tsconfig.json           # TypeScript configuration
+└── Readme.md               # Project documentation
+
 ```
 
 ## Technologies Used
