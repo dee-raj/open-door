@@ -58,6 +58,7 @@ To get started with the project, follow these steps:
 
 ## Project Structure
 
+
 ```
 app/                        # Main app components and pages
 ├── (models)/               # Dynamic pages like booking and login
@@ -65,6 +66,10 @@ app/                        # Main app components and pages
 │   └── login.tsx           # Login-related models and logic
 ├── (tabs)/                 # Tab navigation components (e.g., profile, wishlist)
 │   ├── inbox.tsx           # Inbox tab UI
+
+├── (tabs)/                 # Tab navigation components (e.g., profile, wishlist)
+│   ├── inbox.tsx           # Inbox tab UI
+├   ├── index.tsx           # index for tabs
 │   ├── profile.tsx         # Profile tab UI
 │   ├── trips.tsx           # Trips tab UI
 │   ├── wishlist.tsx        # Wishlist tab UI
@@ -72,28 +77,38 @@ app/                        # Main app components and pages
 ├── listing/                # Listing-specific screens
 │   └── [id].tsx            # Dynamic listing page by ID
 ├── _layout.tsx             # Main layout for the app
+
 assets/                     # Static assets (fonts, images, data)
 ├── data/                   # Data files like GeoJSON and categories
 │   ├── air-bnb-listings.geojson
 │   ├── air-bnb-listings.json
 │   └── categories.ts
+
 ├── fonts/                  # Custom fonts
 │   ├── Nunito-Bold.ttf
 │   ├── Nunito-Italic.ttf
 │   ├── Outfit-Black.ttf
 │   └── SpaceMono-Regular.ttf
+
 ├── images/                 # Static images (icons, splash)
 │   ├── adaptive-icon.png
 │   ├── icon.png
 │   ├── splash-icon.png
 │   └── image1.webp
+│   └── image1.webp ... image14.webp
+
 components/                 # Reusable UI components
 ├── ExploreHeader.tsx       # Header component for Explore screen
+└── ListingBottom.tsx       # Component to display listings with BottomSheet
 └── Listings.tsx            # Component to display listings
+└── ListingsMap.tsx         # Component to display listings on Maps with marker
+└── ModelHeader.tsx         # Header component for Booking Model
+
 constants/                  # Shared constants and types
 ├── Colors.ts               # Color constants
 ├── CustomTypes.ts          # Custom TypeScript types
 └── Styles.ts               # Shared styles
+
 hooks/                      # Custom React hooks
 └── useWarmUpBrowser.ts     # Hook to warm up browser
 share/                      # Shared logic and utilities
