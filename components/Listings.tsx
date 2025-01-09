@@ -66,6 +66,7 @@ const Listings = ({ listings, category, refresh }: CategoryListProps) => {
         data={loading ? [] : listings}
         ref={listRef}
         renderItem={renderRow}
+        ListHeaderComponent={<Text style={styles.info}>{listings.length} homes</Text>}
       />
     </View>
   );
@@ -76,7 +77,7 @@ export default Listings;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: -15,
-    marginTop: -20
+    marginTop: -10
   },
   title: {
     fontSize: 16,
@@ -94,5 +95,11 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 300,
     borderRadius: 10
+  },
+  info: {
+    textAlign: 'center',
+    fontFamily: 'NunitiBold',
+    fontSize: 16,
+    fontWeight: 'bold'
   },
 });

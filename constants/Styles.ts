@@ -4,8 +4,8 @@ import Colors from "./Colors";
 export const DefaultStyles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#FDEFDE", 
-        paddingHorizontal: 20, 
+        backgroundColor: "#FDEFDE",
+        paddingHorizontal: 20,
     },
     inputField: {
         height: 50,
@@ -13,32 +13,32 @@ export const DefaultStyles = StyleSheet.create({
         borderColor: '#ABABAB',
         borderWidth: 1,
         padding: 12,
-        marginVertical: 8, 
+        marginVertical: 8,
         backgroundColor: "#FFF",
-        fontSize: 16, 
+        fontSize: 16,
     },
     inputFieldFocused: {
-        borderColor: Colors.primary, 
+        borderColor: Colors.primary,
     },
     btn: {
         backgroundColor: Colors.primary,
         height: 50,
         borderRadius: 8,
         justifyContent: 'center',
-        alignItems: 'center', 
+        alignItems: 'center',
         marginVertical: 12,
         shadowColor: "#000",
         shadowOpacity: 0.1,
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 4,
-        elevation: 2, 
+        elevation: 2,
     },
     btnText: {
         color: '#FFF',
         fontSize: 18,
         fontFamily: 'NunitoBold',
         textAlign: 'center',
-        paddingHorizontal:10
+        paddingHorizontal: 10
     },
     btnIcon: {
         position: 'absolute',
@@ -87,6 +87,7 @@ export const DefaultStyles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 4,
         elevation: 2,
+        alignItems: 'center',
     },
     cardTitle: {
         fontSize: 18,

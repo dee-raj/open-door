@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { StyleSheet, Text, View } from 'react-native';
 import { GeoListingProps, ListingGeoFeatures } from '@/constants/CustomTypes';
@@ -6,7 +6,7 @@ import { useRouter } from 'expo-router';
 import Colors from '@/constants/Colors';
 
 
-const ListingsMap = ({ listingsGeo }: {
+const ListingsMap = memo(({ listingsGeo }: {
     listingsGeo: GeoListingProps
 }) => {
     const router = useRouter();
@@ -34,7 +34,6 @@ const ListingsMap = ({ listingsGeo }: {
                 showsMyLocationButton
                 initialRegion={INITIAL_REGION}
             >
-
                 {listingsGeo.features.map((item: ListingGeoFeatures) => {
                     // console.log('Rendering Marker:', item);
                     return (
@@ -52,12 +51,11 @@ const ListingsMap = ({ listingsGeo }: {
                         </Marker>
                     );
                 })}
-
             </MapView>
         </View>
-    )
-}
-export default ListingsMap
+    );
+});
+export default ListingsMap;
 
 const styles = StyleSheet.create({
     container: {
