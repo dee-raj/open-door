@@ -1,12 +1,16 @@
 import * as SecureStore from 'expo-secure-store';
 import { ClerkLoaded, ClerkProvider, useAuth } from '@clerk/clerk-expo';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
-import { Stack, useRouter } from 'expo-router';
+import { ScreenProps, Stack, useRouter } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import 'react-native-reanimated';
+import ModelHeader from '@/components/ModelHeader';
+import { NativeStackNavigationEventMap, NativeStackNavigationOptions } from 'react-native-screens/lib/typescript/native-stack/types';
+import { ParamListBase, StackNavigationState } from '@react-navigation/native';
+import Colors from '@/constants/Colors';
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY || '';
 if (!publishableKey) {
@@ -115,18 +119,16 @@ function RootLayoutNav() {
         name="listing/[id]"
         options={{
           headerTitle: "",
-          // headerTitleStyle: {
-          //   fontFamily: 'NunitoBold',
-          // },
           headerTransparent: true
         }}
       />
       <Stack.Screen
         name="(models)/booking"
         options={{
-          presentation: 'transparentModal',
-          animation: 'fade',
-          headerTitle: "Booking Details",
+          presentation: "transparentModal",
+          animation: "fade",
+          headerTransparent: true,
+          headerTitle: ''
         }}
       />
     </Stack>
