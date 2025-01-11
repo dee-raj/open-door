@@ -37,3 +37,13 @@ export interface GeoListingProps {
     type: string;
     features: ListingGeoFeatures[]
 }
+
+export interface CardProps {
+    isActive: boolean;
+    currentCard: {
+        index: number,
+        title: string,
+        subtitle: string
+    };
+    onToggle: () => void;
+};

@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
     text: {
         fontFamily: "OutfitSemiBold",
         marginHorizontal: 8,
-        height:'auto'
+        height: 'auto'
     },
 });

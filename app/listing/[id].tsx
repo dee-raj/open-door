@@ -1,10 +1,13 @@
 import { Dimensions, StyleSheet, Text, View, Image, TouchableOpacity, Share, Pressable } from 'react-native';
-import React, { useEffect, useLayoutEffect } from 'react';
-import { useLocalSearchParams, useNavigation, useRouter } from 'expo-router';
+import React, { useEffect } from 'react';
+import { useLocalSearchParams, useNavigation } from 'expo-router';
 import { ListingItemType } from '@/constants/CustomTypes';
 import listingData from '@/assets/data/air-bnb-listings.json';
 import Colors from '@/constants/Colors';
-import Animated, { interpolate, SlideInDown, useAnimatedRef, useAnimatedStyle, useScrollViewOffset } from 'react-native-reanimated';
+import Animated, {
+    interpolate, SlideInDown, useAnimatedRef,
+    useAnimatedStyle, useScrollViewOffset
+} from 'react-native-reanimated';
 import { DefaultStyles } from '@/constants/Styles';
 import { Ionicons } from '@expo/vector-icons';
 
