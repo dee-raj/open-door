@@ -1,3 +1,6 @@
+import { Ionicons } from "@expo/vector-icons"
+import { ImageSourcePropType } from "react-native"
+
 export interface ListingItemType {
     id: number
     name: string
@@ -23,6 +26,10 @@ export interface Coordinates {
     lon: number
     lat: number
 }
+export interface SearchBarProp {
+    placeholder: string;
+    iconName: keyof typeof Ionicons.glyphMap;
+};
 
 export interface ListingGeoFeatures {
     type: string;
@@ -46,4 +53,23 @@ export interface CardProps {
         subtitle: string
     };
     onToggle: () => void;
+    guestsData: GuestListProps['guests'];
+};
+
+export interface PlaceListProps {
+    places: {
+        title: string;
+        img: ImageSourcePropType;
+    }[];
+    selectedPlace: number;
+    onPlaceSelect: (index: number) => void;
+};
+
+export interface GuestListProps {
+    guests: {
+        name: string;
+        text: string;
+        count: number;
+    }[];
+    onGuestCountChange: (index: number, change: number) => void;
 };

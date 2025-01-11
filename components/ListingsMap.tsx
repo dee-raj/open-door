@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { StyleSheet, Text, View } from 'react-native';
-import { GeoListingProps, ListingGeoFeatures } from '@/constants/CustomTypes';
+import { GeoListingProps, ListingGeoFeatures } from '@/share/interfacesTypes';
 import { useRouter } from 'expo-router';
 import Colors from '@/constants/Colors';
 

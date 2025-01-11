@@ -1,7 +1,10 @@
-import { Dimensions, StyleSheet, Text, View, Image, TouchableOpacity, Share, Pressable } from 'react-native';
-import React, { useEffect } from 'react';
+import {
+    Dimensions, StyleSheet, Text, View,
+    Image, TouchableOpacity, Share, Pressable
+} from 'react-native';
+import React, { useEffect, useState } from 'react';
 import { useLocalSearchParams, useNavigation } from 'expo-router';
-import { ListingItemType } from '@/constants/CustomTypes';
+import { ListingItemType } from '@/share/interfacesTypes';
 import listingData from '@/assets/data/air-bnb-listings.json';
 import Colors from '@/constants/Colors';
 import Animated, {
@@ -22,6 +25,7 @@ const Page = () => {
     const navigation = useNavigation();
     const scrollRef = useAnimatedRef<Animated.ScrollView>();
     const scrollOfset = useScrollViewOffset(scrollRef);
+    const [makeFav, setMakeFav] = useState(true);
 
     const shareListing = async () => {
         try {
@@ -68,11 +72,12 @@ const Page = () => {
             headerBackground: () => <Animated.View style={[headerAnimatedStyle, styles.header]} />,
             headerRight: () => (
                 <View style={styles.bar}>
-                    <Pressable style={styles.roundBtn} onPress={() => console.log("Share button pressed")}>
+                    <Pressable style={styles.roundBtn} onPress={() => shareListing()}>
                         <Ionicons name="share-outline" size={22} color={'#111'} />
                     </Pressable>
-                    <Pressable style={styles.roundBtn} onPress={() => console.log("Favorite button pressed")}>
-                        <Ionicons name="heart-outline" size={22} color={'#000'} />
+                    <Pressable style={styles.roundBtn} onPress={() => setMakeFav(!makeFav)}>
+                        <Ionicons name={makeFav ? "heart" : "heart-outline"} size={22}
+                            color={makeFav ? "#871101" : Colors.light.tabIconDefault} />
                     </Pressable>
                 </View>
             ),

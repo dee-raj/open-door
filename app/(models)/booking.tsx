@@ -7,26 +7,28 @@ import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '@/constants/Colors';
 import BookingCard from '@/components/BookingCard';
-import { cards } from '@/assets/data/appDatas';
+import { cards, guestsData as initialGuestsData } from '@/assets/data/appDatas';
 
 const Booking = () => {
     const router = useRouter();
     const [openCard, setOpenCard] = useState(-1);
+    const [guestsData, setGuestsData] = useState(initialGuestsData);
 
     const toggleCard = (index: number) => {
         setOpenCard((prev) => (prev === index ? -1 : index));
     };
 
     const onClearAll = () => {
+        setGuestsData(initialGuestsData);
         setOpenCard(-1);
     };
 
     return (
         <BlurView style={styles.screenContainer} intensity={95} tint="systemChromeMaterialLight">
             {/* Header */}
-            {openCard === -1 && <Animated.View entering={FadeIn.duration(200)} exiting={FadeOut.duration(200)}>
-                <Text style={styles.headerText}>Model Header</Text>
-            </Animated.View>}
+            <Animated.View entering={FadeIn.duration(200)} exiting={FadeOut.duration(200)}>
+                <Text style={styles.headerText}>Choose your Preferences...</Text>
+            </Animated.View>
 
             {/* Cards */}
             <ScrollView
@@ -39,6 +41,7 @@ const Booking = () => {
                         isActive={openCard === card.index}
                         currentCard={card}
                         onToggle={() => toggleCard(card.index)}
+                        guestsData={guestsData}
                     />
                 ))}
             </ScrollView>
@@ -81,6 +84,7 @@ const styles = StyleSheet.create({
         fontFamily: "OutfitSemiBold",
         textAlign: "center",
         marginBottom: 16,
+        color:Colors.primary
     },
     cardContainer: {
         flex: 1,

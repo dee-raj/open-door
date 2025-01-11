@@ -1,7 +1,7 @@
 import { FlatList, Image, ListRenderItem, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'expo-router';
-import { ListingItemType } from '@/constants/CustomTypes';
+import { ListingItemType } from '@/share/interfacesTypes';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '@/constants/Colors';
 import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
