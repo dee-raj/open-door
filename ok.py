@@ -1,7 +1,5 @@
 import json
 import random
-
-
 def assign_images_randomly(file_path, image_urls):
     try:
         # Read the existing JSON file
@@ -32,13 +30,10 @@ def assign_images_randomly(file_path, image_urls):
         print("Error: File is not a valid JSON.")
     except Exception as e:
         print(f"Error while processing JSON file: {e}")
-
-
 # List of image URLs
 image_urls = [
     f"image{i}.webp" for i in range(1, 16)
 ]  # e.g., image1.webp to image15.webp
-
 # Path to the JSON file
 file_path = "assets/data/air-bnb-listings.json"  # Update the path as needed
 
