@@ -54,8 +54,7 @@ const PlaceList = ({ places, selectedPlace, onPlaceSelect, }: PlaceListProps) =>
                         selectedPlace === idx && { color: Colors.primary },
                     ]}
                 >
-                    {"-> "}
-                    {place.title}
+                    {"-> "} {place.title}
                 </Text>
             </TouchableOpacity>
         ))}
